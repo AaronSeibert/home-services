@@ -27,6 +27,7 @@ metadata:
   labels:
     app: httpbin
     service: httpbin
+  namespace: httpbin
 spec:
   ports:
   - name: http
@@ -39,6 +40,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: httpbin
+  namespace: httpbin
 spec:
   replicas: 1
   selector:
@@ -88,47 +90,46 @@ spec:
     name: letsencrypt-prod
     kind: ClusterIssuer
 ---
-definition:
-  apiVersion: networking.istio.io/v1beta1
-  kind: Gateway
-  metadata:
-    name: httpbin-gateway
-  spec:
-    selector:
-      istio: ingressgateway
-    servers:
-      - hosts:
-          - httpbin.seibert.family
-        port:
-          name: https
-          number: 443
-          protocol: HTTPS
-        tls:
-          mode: SIMPLE
-          credentialName: httpbin-cert
-      - hosts:
-          - httpbin.seibert.family
-        port:
-          name: http
-          number: 80
-          protocol: HTTP
-        tls:
-          httpsRedirect: true
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: httpbin-gateway
+  namespace: httpbin
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+    - hosts:
+        - httpbin.seibert.family
+      port:
+        name: https
+        number: 443
+        protocol: HTTPS
+      tls:
+        mode: SIMPLE
+        credentialName: httpbin-cert
+    - hosts:
+        - httpbin.seibert.family
+      port:
+        name: http
+        number: 80
+        protocol: HTTP
+      tls:
+        httpsRedirect: true
 ---
-namespace: httpbin
-definition:
-  apiVersion: networking.istio.io/v1beta1
-  kind: VirtualService
-  metadata:
-    name: httpbin
-  spec:
-    gateways:
-      - httpbin-gateway
-    hosts:
-      - httpbin.seibert.family
-    http:
-      - route:
-        - destination:
-            host: httpbin-server
-            port:
-              number: 80
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: httpbin
+  namespace: httpbin
+spec:
+  gateways:
+    - httpbin-gateway
+  hosts:
+    - httpbin.seibert.family
+  http:
+    - route:
+      - destination:
+          host: httpbin-server
+          port:
+            number: 80
