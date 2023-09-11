@@ -72,7 +72,7 @@ spec:
   renewBefore: 360h # 15d
   subject:
     organizations:
-      - {{ domain }}
+      - seibert.family
   isCA: false
   privateKey:
     algorithm: RSA
@@ -82,7 +82,7 @@ spec:
     - client auth
   # put all DNS names in the cert here
   dnsNames:
-    - httpbin.{{ domain }}
+    - httpbin.seibert.family
   # refer to the ClusterIssuer
   issuerRef:
     name: letsencrypt-prod
@@ -98,7 +98,7 @@ definition:
       istio: ingressgateway
     servers:
       - hosts:
-          - httpbin.{{ domain }}
+          - httpbin.seibert.family
         port:
           name: https
           number: 443
@@ -107,7 +107,7 @@ definition:
           mode: SIMPLE
           credentialName: httpbin-cert
       - hosts:
-          - httpbin.{{ domain }}
+          - httpbin.seibert.family
         port:
           name: http
           number: 80
@@ -125,7 +125,7 @@ definition:
     gateways:
       - httpbin-gateway
     hosts:
-      - httpbin.{{ domain }}
+      - httpbin.seibert.family
     http:
       - route:
         - destination:
