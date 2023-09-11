@@ -23,7 +23,7 @@ metadata:
 apiVersion: v1
 kind: Service
 metadata:
-  name: httpbin-server
+  name: httpbin
   labels:
     app: httpbin
     service: httpbin
@@ -129,6 +129,6 @@ spec:
   http:
     - route:
       - destination:
-          host: httpbin-server
+          host: httpbin
           port:
             number: 80
