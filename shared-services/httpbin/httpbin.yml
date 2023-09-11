@@ -23,7 +23,7 @@ metadata:
 apiVersion: v1
 kind: Service
 metadata:
-  name: httpbin
+  name: httpbin-server
   labels:
     app: httpbin
     service: httpbin
