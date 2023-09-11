@@ -64,7 +64,7 @@ kind: Certificate
 metadata:
   name: httpbin
   # the cert will be in istio-system namespace to be used by istio
-  namespace: istio-system
+  namespace: istio-ingress
 spec:
   # the secret to hold this cert
   secretName: httpbin-cert
