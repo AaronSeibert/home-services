@@ -31,8 +31,7 @@ metadata:
 spec:
   ports:
   - name: http
-    port: 8000
-    targetPort: 80
+    port: 80
   selector:
     app: httpbin
 ---
@@ -131,4 +130,4 @@ spec:
       - destination:
           host: httpbin
           port:
-            number: 8000
+            number: 80
