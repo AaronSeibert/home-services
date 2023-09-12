@@ -73,7 +73,7 @@ spec:
   renewBefore: 360h0m0s # 15d
   subject:
     organizations:
-      - {{ domain }}
+      - {{ .domain }}
   privateKey:
     algorithm: RSA
     size: 2048
@@ -82,7 +82,7 @@ spec:
     - client auth
   # put all DNS names in the cert here
   dnsNames:
-    - httpbin.{{ domain }}
+    - httpbin.{{ .domain }}
   # refer to the ClusterIssuer
   issuerRef:
     name: letsencrypt-prod
@@ -98,7 +98,7 @@ spec:
     istio: ingressgateway
   servers:
     - hosts:
-        - httpbin.{{ domain }}
+        - httpbin.{{ .domain }}
       port:
         name: https
         number: 443
@@ -107,7 +107,7 @@ spec:
         mode: SIMPLE
         credentialName: httpbin-cert
     - hosts:
-        - httpbin.{{ domain }}
+        - httpbin.{{ .domain }}
       port:
         name: http
         number: 80
@@ -124,7 +124,7 @@ spec:
   gateways:
     - httpbin-gateway
   hosts:
-    - httpbin.{{ domain }}
+    - httpbin.{{ .domain }}
   http:
     - route:
       - destination:
