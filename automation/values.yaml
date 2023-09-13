@@ -1,0 +1,15 @@
+zwavejs:
+  istio:
+    enabled: true
+
+  global:
+    fqdn: zwave.seibert.family
+    
+  certificate:
+    create: true 
+    issuerRef:
+      name: letsencrypt-staging
+    namespace: istio-ingress
+
+  image:
+    tag: 8.25
