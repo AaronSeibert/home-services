@@ -16,18 +16,12 @@
 # httpbin service
 ##################################################################################################
 apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: httpbin
----
-apiVersion: v1
 kind: Service
 metadata:
   name: httpbin
   labels:
     app: httpbin
     service: httpbin
-  namespace: httpbin
 spec:
   ports:
   - name: http
@@ -39,7 +33,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: httpbin
-  namespace: httpbin
 spec:
   replicas: 1
   selector:
@@ -71,9 +64,6 @@ spec:
   secretName: httpbin-cert
   duration: 2160h0m0s # 90d
   renewBefore: 360h0m0s # 15d
-  subject:
-    organizations:
-      - seibert.family
   privateKey:
     algorithm: RSA
     size: 2048
@@ -92,7 +82,6 @@ apiVersion: networking.istio.io/v1beta1
 kind: Gateway
 metadata:
   name: httpbin-gateway
-  namespace: httpbin
 spec:
   selector:
     istio: ingressgateway
@@ -119,7 +108,6 @@ apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
   name: httpbin
-  namespace: httpbin
 spec:
   gateways:
     - httpbin-gateway
