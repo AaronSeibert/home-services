@@ -15,4 +15,4 @@ appVersion: "8"
 dependencies:
 - name: zwavejs
   version: 0.2.0
-  repository: https:/helm.seibert.family/
+  repository: https://helm.seibert.family/
