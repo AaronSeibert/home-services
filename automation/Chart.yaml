@@ -1,6 +1,5 @@
 apiVersion: v2
 name: automation
-
 type: application
 
 # This is the chart version. This version number should be incremented each time you make changes
@@ -14,5 +13,5 @@ appVersion: "8"
 
 dependencies:
 - name: zwavejs
-  version: 0.6.0
+  version: 0.7.0
   repository: https://helm.seibert.family/
