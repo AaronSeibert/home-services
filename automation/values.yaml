@@ -8,7 +8,7 @@ zwavejs:
   certificate:
     create: true 
     issuerRef:
-      name: letsencrypt-staging
+      name: letsencrypt-prod
     namespace: istio-ingress
 
   image:
