@@ -11,5 +11,9 @@ zwavejs:
       name: letsencrypt-prod
     namespace: istio-ingress
 
+  persistentVolumeClaim:
+    create: true
+    accessmode: ReadWriteMany
+
   image:
     tag: 8.25
