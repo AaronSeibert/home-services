@@ -13,7 +13,7 @@ zwavejs:
 
   persistentVolumeClaim:
     create: true
-    accessmode: ReadWriteMany
+    accessMode: ReadWriteMany
     storageClassName: synology-iscsi-storage
 
   image:
