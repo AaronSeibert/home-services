@@ -14,6 +14,8 @@ zwavejs:
   persistentVolumeClaim:
     create: true
     accessmode: ReadWriteMany
+    storageClassName: synostorage
+
 
   image:
     tag: 8.25
