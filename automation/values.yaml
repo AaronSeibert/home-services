@@ -14,8 +14,7 @@ zwavejs:
   persistentVolumeClaim:
     create: true
     accessmode: ReadWriteMany
-    storageClassName: synostorage
-
+    storageClassName: synology-iscsi-storage
 
   image:
     tag: 8.25
