@@ -17,4 +17,4 @@ zwavejs:
     storageClassName: synology-iscsi-storage
 
   image:
-    tag: 8.25
+    tag: 9.6
