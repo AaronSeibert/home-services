@@ -1,15 +1,12 @@
 zwavejs:
-  istio:
-    enabled: true
-
   global:
     fqdn: zwave.seibert.family
     
-  certificate:
-    create: true 
-    issuerRef:
-      name: letsencrypt-prod
-    namespace: istio-ingress
+      #  certificate:
+      #create: true 
+      #issuerRef:
+      #name: letsencrypt-prod
+      #namespace: istio-ingress
 
   persistentVolumeClaim:
     create: true
