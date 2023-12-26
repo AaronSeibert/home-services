@@ -57,7 +57,7 @@ kind: Certificate
 metadata:
   name: httpbin
   # the cert will be in istio-system namespace to be used by istio
-  namespace: istio-ingress
+  namespace: shared-services
 spec:
   # the secret to hold this cert
   secretName: httpbin-cert
@@ -77,44 +77,29 @@ spec:
     name: letsencrypt-prod
     kind: ClusterIssuer
 ---
-apiVersion: networking.istio.io/v1beta1
-kind: Gateway
+apiVersion: networking.k8s.io/v1
+kind: Ingress
 metadata:
-  name: httpbin-gateway
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-production
+    kubernetes.io/ingress.class: traefik
+  labels:
+    app: httpbin
+  name: httpbin-ingress
+  namespace: shared-services
 spec:
-  selector:
-    istio: ingressgateway
-  servers:
-    - hosts:
-        - httpbin.seibert.family
-      port:
-        name: https
-        number: 443
-        protocol: HTTPS
-      tls:
-        mode: SIMPLE
-        credentialName: httpbin-cert
-    - hosts:
-        - httpbin.seibert.family
-      port:
-        name: http
-        number: 80
-        protocol: HTTP
-      tls:
-        httpsRedirect: true
----
-apiVersion: networking.istio.io/v1beta1
-kind: VirtualService
-metadata:
-  name: httpbin
-spec:
-  gateways:
-    - httpbin-gateway
-  hosts:
-    - httpbin.seibert.family
-  http:
-    - route:
-      - destination:
-          host: httpbin
-          port:
-            number: 80
+  rules:
+  - host: example.com # Change by your domain
+    http:
+      paths:
+      - backend:
+          service:
+            name: httpbin
+            port: 
+              number: 80
+        path: /
+        pathType: Prefix  
+  tls:
+  - hosts:
+    - httpbin.seibert.family # Change by your domain
+    secretName: httpbin-cert
