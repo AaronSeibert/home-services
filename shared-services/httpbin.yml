@@ -52,31 +52,6 @@ spec:
         ports:
         - containerPort: 80
 ---
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: httpbin
-  # the cert will be in istio-system namespace to be used by istio
-  namespace: shared-services
-spec:
-  # the secret to hold this cert
-  secretName: httpbin-cert
-  duration: 2160h0m0s # 90d
-  renewBefore: 360h0m0s # 15d
-  privateKey:
-    algorithm: RSA
-    size: 2048
-  usages:
-    - server auth
-    - client auth
-  # put all DNS names in the cert here
-  dnsNames:
-    - httpbin.seibert.family
-  # refer to the ClusterIssuer
-  issuerRef:
-    name: letsencrypt-prod
-    kind: ClusterIssuer
----
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
