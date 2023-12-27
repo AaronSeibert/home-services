@@ -15,7 +15,7 @@ zwavejs:
       kubernetes.io/ingress.class: traefik
       cert-manager.io/cluster-issuer: letsencrypt-prod
     hosts:
-    	- host: 'zwave.seibert.family'
+    	- host: zwave.seibert.family
       	paths:
         	- path: /
           	pathType: ImplementationSpecific
