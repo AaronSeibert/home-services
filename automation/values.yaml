@@ -1,6 +1,9 @@
 zwavejs:
   global:
     fqdn: zwave.seibert.family
+
+  service:
+    port: 8091
     
   persistentVolumeClaim:
     create: true
