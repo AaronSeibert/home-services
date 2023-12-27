@@ -58,6 +58,7 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/router.middlewares: forwarded-proto-https@kubernetescrd
   labels:
     app: httpbin
   name: httpbin-ingress
