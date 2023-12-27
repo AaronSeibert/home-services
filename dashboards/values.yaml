@@ -1,6 +1,6 @@
 homepage:
   global:
-    fqdn: homepage.seibert.family
+    fqdn: home.seibert.family
 
   service:
     port: 3000
@@ -20,10 +20,10 @@ homepage:
       gethomepage.dev/name: Homepage
     tls:
       - hosts:
-        - homepage.seibert.family
+        - home.seibert.family
         secretName: homepage-cert
     hosts:
-    - host: homepage.seibert.family
+    - host: home.seibert.family
       paths:
         - path: /
           pathType: Prefix
