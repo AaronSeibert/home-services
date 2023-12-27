@@ -22,9 +22,9 @@ zwavejs:
         - zwave.seibert.family
         secretName: zwave-cert
     hosts:
-      - host: zwave.seibert.family
-        paths:
-          - path: /
-            pathType: Prefix
+    - host: zwave.seibert.family
+      paths:
+        - path: /
+          pathType: Prefix
   image:
     tag: 9.6
