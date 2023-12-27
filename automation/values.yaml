@@ -18,9 +18,9 @@ zwavejs:
     labels:
       app: zwavejs
     tls:
-      hosts:
+      - hosts:
         - zwave.seibert.family
-      secretName: zwave-cert
+        secretName: zwave-cert
     hosts:
       - host: zwave.seibert.family
         paths:
