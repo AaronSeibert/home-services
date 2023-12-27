@@ -14,7 +14,10 @@ zwavejs:
       kubernetes.io/ingress.class: traefik
     labels:
       app: zwavejs
-    tls: true
+    tls:
+      hosts:
+        - zwave.seibert.family
+      secretName: zwave-cert
   hosts:
       - host: zwave.seibert.family
         paths:
