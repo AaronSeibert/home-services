@@ -13,5 +13,5 @@ appVersion: "8"
 
 dependencies:
 - name: homepage
-  version: 0.1.2
+  version: 0.1.3
   repository: https://helm.seibert.family/
