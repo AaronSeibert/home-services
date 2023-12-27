@@ -2,16 +2,28 @@ zwavejs:
   global:
     fqdn: zwave.seibert.family
     
-      #  certificate:
-      #create: true 
-      #issuerRef:
-      #name: letsencrypt-prod
-      #namespace: istio-ingress
+  certificate:
+    create: true 
+    issuerRef:
+      name: letsencrypt-prod
 
   persistentVolumeClaim:
     create: true
     accessMode: ReadWriteMany
     storageClassName: synology-iscsi-storage
 
+  ingress:
+  # -- Create an Ingress object for exposing this chart
+    enabled: false
+    className: ""
+    annotations: {}
+      kubernetes.io/ingress.class: traefik
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+    hosts:
+    - host: 'zwave.seibert.family'
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+      
   image:
-    tag: 8.5
+    tag: 9.6
