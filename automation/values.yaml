@@ -11,7 +11,7 @@ zwavejs:
   # -- Create an Ingress object for exposing this chart
     enabled: false
     className: ""
-    annotations: {}
+    annotations:
       kubernetes.io/ingress.class: traefik
       cert-manager.io/cluster-issuer: letsencrypt-prod
     hosts:
