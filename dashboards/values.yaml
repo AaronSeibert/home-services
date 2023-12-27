@@ -28,7 +28,6 @@ homepage:
         - path: /
           pathType: Prefix
   config:
-  # -- Inlines the homepage configuration
     data:
       kubernetes.yaml: |
         mode: cluster
