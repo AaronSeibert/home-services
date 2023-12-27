@@ -1,0 +1,37 @@
+homepage:
+  global:
+    fqdn: homepage.seibert.family
+
+  service:
+    port: 300
+    
+  ingress:
+    enabled: true
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      kubernetes.io/ingress.class: traefik
+    labels:
+      app: homepage
+    tls:
+      - hosts:
+        - homepage.seibert.family
+        secretName: homepage-cert
+    hosts:
+    - host: homepage.seibert.family
+      paths:
+        - path: /
+          pathType: Prefix
+  config:
+  # -- Inlines the homepage configuration
+    data:
+      kubernetes.yaml: |
+        mode: cluster
+      settings.yaml: ""
+      custom.css: ""
+      custom.js: ""
+      bookmarks.yaml: ""
+      services.yaml: ""
+      widgets.yaml: ""
+      docker.yaml: ""
+  image:
+    tag: v0.8.4
