@@ -8,7 +8,6 @@ zwavejs:
     storageClassName: synology-iscsi-storage
 
   ingress:
-  	# -- Create an Ingress object for exposing this chart
     enabled: true
   	annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
