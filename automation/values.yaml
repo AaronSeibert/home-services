@@ -18,14 +18,13 @@ zwavejs:
     labels:
       app: zwavejs
     tls:
-    - hosts:
+      hosts:
         - zwave.seibert.family
       secretName: zwave-cert
-  hosts:
+    hosts:
       - host: zwave.seibert.family
         paths:
           - path: /
-            pathType: prefix
-            svcPort: 80
+            pathType: Prefix
   image:
     tag: 9.6
