@@ -3,15 +3,21 @@ homepage:
     fqdn: homepage.seibert.family
 
   service:
-    port: 300
+    port: 3000
     
   ingress:
     enabled: true
+    labels:
+      app: homepage
+      app.kubernetes.io/name: homepage
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
       kubernetes.io/ingress.class: traefik
-    labels:
-      app: homepage
+      gethomepage.dev/description: Dynamically Detected Homepage
+      gethomepage.dev/enabled: "true"
+      gethomepage.dev/group: Cluster Management
+      gethomepage.dev/icon: homepage.png
+      gethomepage.dev/name: Homepage
     tls:
       - hosts:
         - homepage.seibert.family
