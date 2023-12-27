@@ -9,7 +9,7 @@ zwavejs:
 
   ingress:
   # -- Create an Ingress object for exposing this chart
-    enabled: false
+    enabled: true
     className: ""
     annotations:
       kubernetes.io/ingress.class: traefik
