@@ -9,15 +9,15 @@ zwavejs:
 
   ingress:
     enabled: true
-  	annotations:
+    annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
       kubernetes.io/ingress.class: traefik
     labels:
       app: zwavejs
     tls: true
-	hosts:
+  hosts:
       - host: zwave.seibert.family
-		paths:
+        paths:
           - path: /
             pathType: prefix
             svcPort: 80
