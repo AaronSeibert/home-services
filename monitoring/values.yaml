@@ -1,0 +1,13 @@
+prometheus:
+  server:
+    ingress:
+      enabled: true
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        kubernetes.io/ingress.class: traefik
+      hosts:
+        - prometheus.seibert.family
+      tls:
+        - secretName: prometheus-cert
+          hosts:
+            - prometheus.seibert.family
