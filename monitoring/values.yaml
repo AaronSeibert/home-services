@@ -15,3 +15,8 @@ prometheus:
       accessModes:
         - ReadWriteMany
       storageClass: synology-iscsi-storage
+  alertmanager:
+    persistence:
+      accessModes:
+        - ReadWriteMany
+      storageClass: synology-iscsi-storage
