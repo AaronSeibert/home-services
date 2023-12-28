@@ -11,3 +11,7 @@ prometheus:
         - secretName: prometheus-cert
           hosts:
             - prometheus.seibert.family
+      persistentVolume:
+        accessModes:
+          - ReadWriteMany
+        storageClass: synology-iscsi-storage
