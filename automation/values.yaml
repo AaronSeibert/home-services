@@ -1,0 +1,35 @@
+zwavejs:
+  global:
+    fqdn: zwave.seibert.family
+
+  service:
+    port: 8091
+    
+  persistentVolumeClaim:
+    create: true
+    accessMode: ReadWriteMany
+    storageClassName: synology-iscsi-storage
+
+  ingress:
+    enabled: true
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      kubernetes.io/ingress.class: traefik
+      gethomepage.dev/enabled: "true"
+      gethomepage.dev/description: Zwave Management
+      gethomepage.dev/icon: zwavejs2mqtt.png
+      gethomepage.dev/group: Automation
+      gethomepage.dev/name: ZwaveJS
+    labels:
+      app: zwavejs
+    tls:
+      - hosts:
+        - zwave.seibert.family
+        secretName: zwave-cert
+    hosts:
+    - host: zwave.seibert.family
+      paths:
+        - path: /
+          pathType: Prefix
+  image:
+    tag: 9.6
