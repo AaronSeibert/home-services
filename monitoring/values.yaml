@@ -26,7 +26,26 @@ prometheus:
       paths:
         - path: /
           pathType: Prefix
-      
+alertmanager:
+  ingress:
+    enabled: true
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      kubernetes.io/ingress.class: traefik
+      gethomepage.dev/description: Monitoring Alerts
+      gethomepage.dev/enabled: "true"
+      gethomepage.dev/group: Monitoring
+      gethomepage.dev/icon: alertmanager.png
+      gethomepage.dev/name: AlertManager
+    tls:
+      - hosts:
+        - alertmanager.seibert.family
+        secretName: monitoring-alertmanager-cert
+    hosts:
+    - host: alertmanager.seibert.family
+      paths:
+        - path: /
+          pathType: Prefix
 grafana:
   ingress:
     enabled: true
