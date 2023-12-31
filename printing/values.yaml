@@ -14,7 +14,7 @@ fluidd:
         - fluidd.seibert.family
         secretName: printing-fluidd-cert
     hosts:
-      host: fluidd.seibert.family
-    paths:
-      path: /
-      pathType: Prefix
+    - host: fluidd.seibert.family
+      paths:
+        - path: /
+          pathType: Prefix
