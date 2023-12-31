@@ -6,12 +6,30 @@ storageSpec:
       resources:
         requests:
           storage: 50Gi
+prometheus:
+  ingress:
+    enabled: true
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      kubernetes.io/ingress.class: traefik
+      gethomepage.dev/description: Metrics
+      gethomepage.dev/enabled: "true"
+      gethomepage.dev/group: Monitoring
+      gethomepage.dev/icon: prometheus.png
+      gethomepage.dev/name: Prometheus
+    tls:
+      - hosts:
+        - prometheus.seibert.family
+        secretName: monitoring-prometheus-cert
+    hosts:
+    - host: prometheus.seibert.family
+      paths:
+        - path: /
+          pathType: Prefix
+      
 grafana:
   ingress:
     enabled: true
-    labels:
-      app: monitoring-grafana
-      app.kubernetes.io/name: monitoring-grafana
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
       kubernetes.io/ingress.class: traefik
