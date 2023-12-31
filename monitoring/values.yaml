@@ -8,6 +8,7 @@ storageSpec:
           storage: 50Gi
 grafana:
   ingress:
+    enabled: true
     labels:
       app: monitoring-grafana
       app.kubernetes.io/name: monitoring-grafana

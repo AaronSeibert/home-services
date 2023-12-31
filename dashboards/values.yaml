@@ -13,11 +13,6 @@ homepage:
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
       kubernetes.io/ingress.class: traefik
-      gethomepage.dev/description: Dynamically Detected Homepage
-      gethomepage.dev/enabled: "true"
-      gethomepage.dev/group: Cluster Management
-      gethomepage.dev/icon: homepage.png
-      gethomepage.dev/name: Homepage
     tls:
       - hosts:
         - home.seibert.family
