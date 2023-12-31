@@ -17,7 +17,7 @@ zwavejs:
       kubernetes.io/ingress.class: traefik
       gethomepage.dev/enabled: "true"
       gethomepage.dev/description: Zwave Management
-      gethomepage.dev/icon: zwave.png
+      gethomepage.dev/icon: zwavejs2mqtt.png
       gethomepage.dev/group: Automation
       gethomepage.dev/name: ZwaveJS
     labels:
