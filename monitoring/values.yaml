@@ -9,6 +9,7 @@ storageSpec:
 prometheus:
   ingress:
     enabled: true
+    ingressClassName: traefik
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
       kubernetes.io/ingress.class: traefik
@@ -21,13 +22,17 @@ prometheus:
       - hosts:
         - prometheus.seibert.family
         secretName: monitoring-prometheus-cert
-    hosts:
-    - host: prometheus.seibert.family
-      paths:
-        - path: /
-          pathType: Prefix
+    hosts: ['prometheus.seibert.family']
+    paths: ['/']
+  prometheusSpec:
+    externalUrl: https://prometheus.seibert.family/
+    routePrefix: /
 alertmanager:
+  alertmanagerSpec:
+    externalUrl: https://alertmanager.seibert.family/
+    routePrefix: /
   ingress:
+    ingressClassName: traefik
     enabled: true
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
@@ -41,13 +46,12 @@ alertmanager:
       - hosts:
         - alertmanager.seibert.family
         secretName: monitoring-alertmanager-cert
-    hosts:
-    - host: alertmanager.seibert.family
-      paths:
-        - path: /
-          pathType: Prefix
+    hosts: ['alertmanager.seibert.family']
+    paths: ['/']
 grafana:
+  adminPassword: prom-operator
   ingress:
+    ingressClassName: traefik
     enabled: true
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
@@ -61,8 +65,5 @@ grafana:
       - hosts:
         - grafana.seibert.family
         secretName: monitoring-grafana-cert
-    hosts:
-    - host: grafana.seibert.family
-      paths:
-        - path: /
-          pathType: Prefix
+    hosts: ['grafana.seibert.family']
+    paths: ['/']
