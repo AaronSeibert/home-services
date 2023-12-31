@@ -1,78 +1,20 @@
-storageSpec:
-  volumeClaimTemplate:
-    spec:
-      storageClassName: synology-iscsi-storage
-      accessModes: ["ReadWriteOnce"]
-      resources:
-        requests:
-          storage: 50Gi
-prometheus:
+fluidd:
   ingress:
-    enabled: true
-    ingressClassName: traefik
-    annotations:
-      cert-manager.io/cluster-issuer: letsencrypt-prod
-      kubernetes.io/ingress.class: traefik
-      gethomepage.dev/description: Metrics
-      gethomepage.dev/enabled: "true"
-      gethomepage.dev/group: Monitoring
-      gethomepage.dev/icon: prometheus.png
-      gethomepage.dev/name: Prometheus
-    tls:
-      - hosts:
-        - prometheus.seibert.family
-        secretName: monitoring-prometheus-cert
-    hosts: 
-      - prometheus.seibert.family
-    paths:
-      - /
-    pathType: Prefix
-  prometheusSpec:
-    externalUrl: https://prometheus.seibert.family/
-    routePrefix: /
-alertmanager:
-  alertmanagerSpec:
-    externalUrl: https://alertmanager.seibert.family/
-    routePrefix: /
-  ingress:
-    ingressClassName: traefik
     enabled: true
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
       kubernetes.io/ingress.class: traefik
-      gethomepage.dev/description: Monitoring Alerts
+      gethomepage.dev/description: 3D Printer Management
       gethomepage.dev/enabled: "true"
-      gethomepage.dev/group: Monitoring
-      gethomepage.dev/icon: alertmanager.png
-      gethomepage.dev/name: AlertManager
+      gethomepage.dev/group: 3D Printing
+      gethomepage.dev/icon: fluidd.png
+      gethomepage.dev/name: Fluidd
     tls:
       - hosts:
-        - alertmanager.seibert.family
-        secretName: monitoring-alertmanager-cert
+        - fluidd.seibert.family
+        secretName: printing-fluidd-cert
     hosts: 
-      - alertmanager.seibert.family
-    paths:
-      - /
-    pathType: Prefix
-grafana:
-  adminPassword: prom-operator
-  ingress:
-    ingressClassName: traefik
-    enabled: true
-    annotations:
-      cert-manager.io/cluster-issuer: letsencrypt-prod
-      kubernetes.io/ingress.class: traefik
-      gethomepage.dev/description: Grafana
-      gethomepage.dev/enabled: "true"
-      gethomepage.dev/group: Monitoring
-      gethomepage.dev/icon: grafana.png
-      gethomepage.dev/name: Grafana
-    tls:
-      - hosts:
-        - grafana.seibert.family
-        secretName: monitoring-grafana-cert
-    hosts: 
-      - grafana.seibert.family
+      - fluidd.seibert.family
     paths:
       - /
     pathType: Prefix
