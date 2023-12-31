@@ -15,11 +15,10 @@ zwavejs:
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
       kubernetes.io/ingress.class: traefik
-      gethomepage.dev/enabled: "true"
+      gethomepage.dev/enabled: true
       gethomepage.dev/description: ZWAVE UI
       gethomepage.dev/group: Automation
       gethomepage.dev/name: zwave
-      gethomepage.dev/weight: 10 # optional
     labels:
       app: zwavejs
     tls:
