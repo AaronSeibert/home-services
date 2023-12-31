@@ -22,8 +22,11 @@ prometheus:
       - hosts:
         - prometheus.seibert.family
         secretName: monitoring-prometheus-cert
-    hosts: ['prometheus.seibert.family']
-    paths: ['/']
+    hosts: 
+      - prometheus.seibert.family
+    paths:
+      - /
+    pathType: Prefix
   prometheusSpec:
     externalUrl: https://prometheus.seibert.family/
     routePrefix: /
@@ -46,8 +49,11 @@ alertmanager:
       - hosts:
         - alertmanager.seibert.family
         secretName: monitoring-alertmanager-cert
-    hosts: ['alertmanager.seibert.family']
-    paths: ['/']
+    hosts: 
+      - alertmanager.seibert.family
+    paths:
+      - /
+    pathType: Prefix
 grafana:
   adminPassword: prom-operator
   ingress:
@@ -65,5 +71,8 @@ grafana:
       - hosts:
         - grafana.seibert.family
         secretName: monitoring-grafana-cert
-    hosts: ['grafana.seibert.family']
-    paths: ['/']
+    hosts: 
+      - grafana.seibert.family
+    paths:
+      - /
+    pathType: Prefix
