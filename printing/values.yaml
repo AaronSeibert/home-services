@@ -13,8 +13,8 @@ fluidd:
       - hosts:
         - fluidd.seibert.family
         secretName: printing-fluidd-cert
-    hosts: 
-      - fluidd.seibert.family
+    hosts:
+      host: fluidd.seibert.family
     paths:
-      - /
-    pathType: Prefix
+      path: /
+      pathType: Prefix
