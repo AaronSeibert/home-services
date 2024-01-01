@@ -1,4 +1,9 @@
 fluidd:
+  service:
+    enabled: true
+    ports:
+      - name: http
+        port: 80
   ingress:
     enabled: true
     annotations:
@@ -13,6 +18,8 @@ fluidd:
       - hosts:
         - fluidd.seibert.family
         secretName: printing-fluidd-cert
+    labels:
+      app: fluidd
     hosts:
     - host: fluidd.seibert.family
       paths:
