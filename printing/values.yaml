@@ -1,9 +1,6 @@
 fluidd:
   service:
-    enabled: true
-    ports:
-      - name: http
-        port: 80
+    port: 80
   ingress:
     enabled: true
     annotations:
