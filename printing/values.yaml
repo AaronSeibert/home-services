@@ -22,3 +22,31 @@ fluidd:
       paths:
         - path: /
           pathType: Prefix
+spoolman:
+  image:
+    tag: "0.15"
+  persistentVolumeClaim:
+    storageClassName: synology-iscsi-storage
+  service:
+    port: 8000
+  ingress:
+    enabled: true
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      kubernetes.io/ingress.class: traefik
+      gethomepage.dev/description: Spool Manager
+      gethomepage.dev/enabled: "true"
+      gethomepage.dev/group: 3D Printing
+      gethomepage.dev/icon: spoolman.png
+      gethomepage.dev/name: SpoolMan
+    tls:
+      - hosts:
+        - spoolman.seibert.family
+        secretName: printing-spoolman-cert
+    labels:
+      app: spoolman
+    hosts:
+    - host: spoolman.seibert.family
+      paths:
+        - path: /
+          pathType: Prefix
