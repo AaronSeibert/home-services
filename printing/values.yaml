@@ -25,6 +25,17 @@ fluidd:
 spoolman:
   image:
     tag: 0.15
+  env:
+  # -- Timezone for the container.
+  - name: TZ
+    value: UTC
+  # -- DB to use
+  - name: SPOOLMAN_DB_TYPE
+    value: sqlite
+  - name: PUID
+    value: 0
+  - name: PGID
+    value: 0
   persistentVolumeClaim:
     storageClassName: synology-iscsi-storage
   service:
