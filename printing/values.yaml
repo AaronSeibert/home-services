@@ -24,11 +24,11 @@ fluidd:
           pathType: Prefix
 spoolman:
   image:
-    tag: "0.15"
+    tag: 0.15
   persistentVolumeClaim:
     storageClassName: synology-iscsi-storage
   service:
-    port: "8000"
+    port: 8000
   ingress:
     enabled: true
     annotations:
