@@ -13,5 +13,5 @@ appVersion: "8"
 
 dependencies:
 - name: fluidd
-  version: 0.1.4
+  version: 0.1.5
   repository: https://helm.seibert.family/
