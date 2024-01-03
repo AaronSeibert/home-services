@@ -28,7 +28,7 @@ spoolman:
   persistentVolumeClaim:
     storageClassName: synology-iscsi-storage
   service:
-    port: 8000
+    port: "8000"
   ingress:
     enabled: true
     annotations:
