@@ -16,5 +16,5 @@ dependencies:
   version: 0.1.5
   repository: https://helm.seibert.family/
 - name: spoolman
-  version: 0.1.3
+  version: 0.1.4
   repository: https://helm.seibert.family/
