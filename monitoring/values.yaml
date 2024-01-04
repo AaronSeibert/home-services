@@ -91,6 +91,8 @@ influxdb:
 
   ingress:
     enabled: true
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
     labels:
       app: influxdb
     tls:
