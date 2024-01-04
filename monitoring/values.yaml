@@ -109,4 +109,5 @@ telegraf-sensors:
       value: UTC
     - name: INFLUX_TOKEN
       value: 6ErYpQJMh9Gk_o3wvq3LqxnvDlvbuGfbXl9ImGaJImOGO-gQrJnAabesfS-vWUlBpPHEAsMiqFWCuplqDUxlNA==
-  command: "telegraf --config https://influxdb.seibert.family/api/v2/telegrafs/0c6181e2f11fb000"
+  command: ["telegraf"]
+  args: ["--config","https://influxdb.seibert.family/api/v2/telegrafs/0c6181e2f11fb000"]
