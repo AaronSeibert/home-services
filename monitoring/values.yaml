@@ -80,15 +80,12 @@ kube-prometheus-stack:
 influxdb:
   global:
     fqdn: influxdb.seibert.family
-
   service:
     port: 8086
-    
   persistentVolumeClaim:
     create: true
     accessMode: ReadWriteMany
     storageClassName: synology-iscsi-storage
-
   ingress:
     enabled: true
     annotations:
@@ -106,3 +103,10 @@ influxdb:
           pathType: Prefix
   image:
     tag: 2.7
+telegraf-sensors:
+  env:
+    - name: TZ
+      value: UTC
+    - name: INFLUX_TOKEN
+      value: 6ErYpQJMh9Gk_o3wvq3LqxnvDlvbuGfbXl9ImGaJImOGO-gQrJnAabesfS-vWUlBpPHEAsMiqFWCuplqDUxlNA==
+  command: "telegraf --config https://influxdb.seibert.family/api/v2/telegrafs/0c6181e2f11fb000"

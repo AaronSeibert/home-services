@@ -1,0 +1,9 @@
+dependencies:
+- name: kube-prometheus-stack
+  repository: https://prometheus-community.github.io/helm-charts
+  version: 55.5.0
+- name: influxdb
+  repository: https://helm.seibert.family
+  version: 0.1.4
+digest: sha256:7c089732c72dbbd106c48825c10f802a59b699dab416dc9a06ffd3680eb007c7
+generated: "2024-01-04T11:03:42.996162-05:00"

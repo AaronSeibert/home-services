@@ -18,3 +18,7 @@ dependencies:
 - name: influxdb
   version: 0.1.4
   repository: https://helm.seibert.family
+- name: telegraf
+  version: 0.1.0
+  alias: telegraf-sensors
+  repository: https://helm.seibert.family
