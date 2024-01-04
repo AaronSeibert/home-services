@@ -103,4 +103,4 @@ influxdb:
         - path: /
           pathType: Prefix
   image:
-    tag: 2.7
+    tag: "2.7"
