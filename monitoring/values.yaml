@@ -108,8 +108,8 @@ telegraf-sensors:
     - name: TZ
       value: UTC
     - name: INFLUX_TOKEN
-      value: 6ErYpQJMh9Gk_o3wvq3LqxnvDlvbuGfbXl9ImGaJImOGO-gQrJnAabesfS-vWUlBpPHEAsMiqFWCuplqDUxlNA==
+      value: CPV6JF8lknCmH1IHaL5ybWwyfWikrx9CCATvclR8mo6x13TbZ02TlnDi8iIHLBz-sfeqhYrjr94vyMMV-4wHaA==
     - name: INFLUX_CONFIG_ID
-      value: 0c6181e2f11fb000
+      value: 0c62d0ece56e3000
     - name: INFLUX_BUCKET
       value: sensors
