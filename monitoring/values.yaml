@@ -112,4 +112,4 @@ telegraf-sensors:
     - name: INFLUX_CONFIG_ID
       value: 0c6181e2f11fb000
   command: ["telegraf"]
-  args: ["----config","https://influxdb.seibert.family/api/v2/telegrafs/$INFLUX_CONFIG_ID"]
+  args: ["--config","https://influxdb.seibert.family/api/v2/telegrafs/$INFLUX_CONFIG_ID"]
