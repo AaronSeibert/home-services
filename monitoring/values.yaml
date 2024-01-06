@@ -57,6 +57,10 @@ kube-prometheus-stack:
       pathType: Prefix
   grafana:
     adminPassword: prom-operator
+    persistentVolumeClaim:
+      create: true
+      accessMode: ReadWriteMany
+      storageClassName: synology-iscsi-storage
     ingress:
       ingressClassName: traefik
       enabled: true
