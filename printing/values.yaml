@@ -11,6 +11,7 @@ fluidd:
       gethomepage.dev/group: 3D Printing
       gethomepage.dev/icon: fluidd.png
       gethomepage.dev/name: Fluidd
+      gethomepage.dev/siteMonitor: http://monitoring-fluidd
     tls:
       - hosts:
         - fluidd.seibert.family
