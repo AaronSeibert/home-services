@@ -30,16 +30,6 @@ spoolman:
   # -- Timezone for the container.
   - name: TZ
     value: UTC
-  - name: DOCKER_INFLUXDB_INIT_MODE
-    value: setup
-  - name: DOCKER_INFLUXDB_INIT_USERNAME
-    value: influxdb
-  - name: DOCKER_INFLUXDB_INIT_PASSWORD
-    value: influxdb
-  - name: DOCKER_INFLUXDB_INIT_ORG
-    value: seibert-family
-  - name: DOCKER_INFLUXDB_INIT_BUCKET
-    value: test-sensors
   # -- DB to use
   - name: SPOOLMAN_DB_TYPE
     value: sqlite
@@ -61,6 +51,7 @@ spoolman:
       gethomepage.dev/group: 3D Printing
       gethomepage.dev/icon: spoolman.png
       gethomepage.dev/name: SpoolMan
+      gethomepage.dev/siteMonitor: http://monitoring-spoolman
     tls:
       - hosts:
         - spoolman.seibert.family
