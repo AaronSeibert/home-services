@@ -11,7 +11,7 @@ fluidd:
       gethomepage.dev/group: 3D Printing
       gethomepage.dev/icon: fluidd.png
       gethomepage.dev/name: Fluidd
-      gethomepage.dev/siteMonitor: http://monitoring-fluidd
+      gethomepage.dev/siteMonitor: https://fluidd.seibert.family
     tls:
       - hosts:
         - fluidd.seibert.family
@@ -51,7 +51,7 @@ spoolman:
       gethomepage.dev/group: 3D Printing
       gethomepage.dev/icon: spoolman.png
       gethomepage.dev/name: SpoolMan
-      gethomepage.dev/siteMonitor: http://monitoring-spoolman
+      gethomepage.dev/siteMonitor: https://spoolman.seibert.family
     tls:
       - hosts:
         - spoolman.seibert.family
