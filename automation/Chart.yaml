@@ -16,5 +16,5 @@ dependencies:
   version: 0.7.0
   repository: https://helm.seibert.family/
 - name: node-red
-  version: 0.1.0
+  version: 0.1.1
   repository: https://helm.seibert.family/
