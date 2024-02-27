@@ -33,3 +33,39 @@ zwavejs:
           pathType: Prefix
   image:
     tag: 9.6
+node-red:
+  global:
+    fqdn: node-red.seibert.family
+
+  service:
+    port: 1880
+    
+  persistentVolumeClaim:
+    create: true
+    accessMode: ReadWriteMany
+    storageClassName: synology-iscsi-storage
+    mountPath: /data
+
+  ingress:
+    enabled: true
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      kubernetes.io/ingress.class: traefik
+      gethomepage.dev/enabled: "true"
+      gethomepage.dev/description: Automation Logic
+      gethomepage.dev/icon: nodered.png
+      gethomepage.dev/group: Automation
+      gethomepage.dev/name: Node Red
+    labels:
+      app: node-red
+    tls:
+      - hosts:
+        - node-red.seibert.family
+        secretName: node-red-cert
+    hosts:
+    - host: node-red.seibert.family
+      paths:
+        - path: /
+          pathType: Prefix
+  image:
+    tag: 3.1.5

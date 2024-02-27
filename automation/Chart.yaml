@@ -15,3 +15,6 @@ dependencies:
 - name: zwavejs
   version: 0.7.0
   repository: https://helm.seibert.family/
+- name: node-red
+  version: 0.1.0
+  repository: https://helm.seibert.family/
