@@ -9,7 +9,9 @@ spec:
   externalName: 172.16.5.10
   ports:
     - port: 7125
+      name: moonraker
     - port: 80
+      name: camera
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
