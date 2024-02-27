@@ -9,6 +9,7 @@ spec:
   externalName: 172.16.5.10
   ports:
     - port: 7125
+    - port: 80
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -29,6 +30,13 @@ spec:
                 port:
                   number: 7125
             path: /
+            pathType: Prefix
+          - camera:
+              service:
+                name: replicator-p-10
+                port:
+                  number: 80
+            path: /camera/
             pathType: Prefix
   tls:
     - hosts:
