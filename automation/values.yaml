@@ -72,4 +72,4 @@ node-red:
     runAsUser: 0
 
   image:
-    tag: 3.1.5
+    tag: 3.1.5-18
