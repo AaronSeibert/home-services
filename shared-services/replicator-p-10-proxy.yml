@@ -6,7 +6,7 @@ metadata:
   namespace: default
 spec:
   type: ExternalName
-  externalName: replicator-p-10.engineering.seibert.family.seibert.family
+  externalName: replicator-p-10.engineering.seibert.family
   ports:
     - port: 80
       targetPort: 80
@@ -22,7 +22,7 @@ metadata:
   namespace: default
 spec:
   rules:
-    - host: replicator-p-10.engineering.seibert.family.seibert.family
+    - host: replicator-p-10.engineering.seibert.family
       http:
         paths:
           - backend:
@@ -34,5 +34,5 @@ spec:
             pathType: Prefix
   tls:
     - hosts:
-        - replicator-p-10.engineering.seibert.family.seibert.family
+        - replicator-p-10.engineering.seibert.family
       secretName: replicator-p-10_cert
