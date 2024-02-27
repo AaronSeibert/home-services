@@ -69,7 +69,7 @@ node-red:
     - host: node-red-alexa.seibert.family
       paths:
         - path: /
-          path-type: Prefix
+          pathType: Prefix
           port: 1881
 
   securityContext:
