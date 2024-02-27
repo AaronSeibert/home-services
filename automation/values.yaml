@@ -36,10 +36,7 @@ zwavejs:
 node-red:
   global:
     fqdn: node-red.seibert.family
-
-  service:
-    port: 1880
-    
+   
   persistentVolumeClaim:
     create: true
     accessMode: ReadWriteMany
@@ -61,12 +58,19 @@ node-red:
     tls:
       - hosts:
         - node-red.seibert.family
+        - node-red-alexa.seibert.family
         secretName: node-red-cert
     hosts:
     - host: node-red.seibert.family
       paths:
         - path: /
           pathType: Prefix
+          port: 1880
+    - host: node-red-alexa.seibert.family
+      paths:
+        - path: /
+          path-type: Prefix
+          port: 1881
 
   securityContext:
     runAsUser: 0
