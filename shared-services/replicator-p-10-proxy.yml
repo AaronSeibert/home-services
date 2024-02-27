@@ -38,7 +38,7 @@ spec:
                 name: replicator-p-10
                 port:
                   number: 80
-            path: /camera/
+            path: /webcam/
             pathType: Prefix
   tls:
     - hosts:
