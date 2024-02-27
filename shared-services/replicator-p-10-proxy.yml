@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: replicator-p-10-moonraker
+  name: replicator-p-10
   namespace: default
 spec:
   type: ExternalName
@@ -28,18 +28,18 @@ spec:
         paths:
           - backend:
               service:
-                name: replicator-p-10-moonraker
-                port:
-                  name: moonraker
-            path: /
-            pathType: Prefix
-          - backend:
-              service:
-                name: replicator-p-10-webcam
+                name: replicator-p-10
                 port:
                   name: default
             path: /webcam/
             pathType: Exact
+          - backend:
+              service:
+                name: replicator-p-10
+                port:
+                  name: moonraker
+            path: /
+            pathType: Prefix
   tls:
     - hosts:
         - replicator-p-10.engineering.seibert.family
