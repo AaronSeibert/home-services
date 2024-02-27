@@ -66,11 +66,13 @@ node-red:
         - path: /
           pathType: Prefix
           port: 1880
+          serviceName: http
     - host: node-red-alexa.seibert.family
       paths:
         - path: /
           pathType: Prefix
           port: 1881
+          serviceName: alexa-proxy
 
   securityContext:
     runAsUser: 0
