@@ -35,4 +35,4 @@ spec:
   tls:
     - hosts:
         - replicator-p-10.engineering.seibert.family
-      secretName: replicator-p-10_cert
+      secretName: replicator-p-10-cert
