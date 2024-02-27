@@ -8,8 +8,8 @@ spec:
   type: ExternalName
   externalName: replicator-p-10.engineering.seibert.family
   ports:
-    - port: 80
-      targetPort: 80
+    - port: 7125
+      targetPort: 7125
       protocol: TCP
 ---
 apiVersion: networking.k8s.io/v1
@@ -29,7 +29,7 @@ spec:
               service:
                 name: replicator-p-10
                 port:
-                  number: 80
+                  number: 7125
             path: /
             pathType: Prefix
   tls:
