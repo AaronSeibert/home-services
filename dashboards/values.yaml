@@ -43,6 +43,11 @@ homepage:
                   maxEvents: 10 # optional - defaults to 10
                   showTime: true # optional - show time for event happening today - defaults to false
                   timezone: America/New_York # optional and only when timezone is not detected properly (slightly slower performance) - force timezone for ical events (if it's the same - no change, if missing or different in ical - will be converted to this timezone)
+        - Replicators:
+            - P-10:
+                widget:
+                  type: moonraker
+                  url: http://replicator-p-10.engineering.seibert.family
       widgets.yaml: |
         # show the kubernetes widget, with the cluster summary and individual nodes
         - kubernetes:
