@@ -9,7 +9,7 @@ version: 0.1.0
 
 # This is the version number of the application being deployed. Versions are not expected to
 # follow Semantic Versioning. They should reflect the version the application is using.
-appVersion: "8"
+appVersion: v0.8.8
 
 dependencies:
 - name: homepage
