@@ -50,7 +50,7 @@ node-red:
       kubernetes.io/ingress.class: traefik
       gethomepage.dev/enabled: "true"
       gethomepage.dev/description: Automation Logic
-      gethomepage.dev/icon: si-nodered
+      gethomepage.dev/icon: si-nodered-#8F0000
       gethomepage.dev/group: Automation
       gethomepage.dev/name: Node Red
     labels:
