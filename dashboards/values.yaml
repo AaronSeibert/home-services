@@ -24,13 +24,18 @@ homepage:
     data:
       kubernetes.yaml: |
         mode: cluster
-      settings.yaml: ""
+      settings.yaml: |
+        startUrl: https://home.seibert.family
+        layout:
+          Executive Functioning:
+            style: row
+            columns: 2
       custom.css: ""
       custom.js: ""
       bookmarks.yaml: ""
       services.yaml: |
         - Executive Functioning:
-            - calendar:
+            - Calendar:
                 widget:
                   type: calendar
                   firstDayInWeek: sunday # optional - defaults to monday
