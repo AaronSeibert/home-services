@@ -56,3 +56,5 @@ homepage:
             focus: true
             target: _blank
       docker.yaml: ""
+  image:
+    tag: v0.8.8
