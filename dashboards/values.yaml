@@ -29,7 +29,7 @@ homepage:
       custom.js: ""
       bookmarks.yaml: ""
       services.yaml: |
-        - Executive Functioning
+        - Executive Functioning:
             - calendar:
                 widget:
                   type: calendar
