@@ -13,5 +13,5 @@ appVersion: "8"
 
 dependencies:
 - name: paperless-ngx
-  version: 0.1.26
+  version: 0.1.27
   repository: https://helm.seibert.family/
