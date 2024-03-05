@@ -1,0 +1,101 @@
+paperless-ngx:
+  ingress:
+    # -- Create an Ingress object for exposing this chart
+    enabled: true
+    className: ""
+    annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        kubernetes.io/ingress.class: traefik
+        gethomepage.dev/enabled: "true"
+        gethomepage.dev/description: Electronic Filing Cabinet
+        gethomepage.dev/group: Documentation
+        gethomepage.dev/icon: paperless-ngx.png
+        gethomepage.dev/name: Paperless NGX
+    hosts:
+      - host: 'paperless.seibert.family'
+        paths:
+          - path: /
+            pathType: Prefix
+    tls:
+      - secretName: paperless-ngx-tls
+        hosts:
+          - paperless-ngx.seibert.family
+  env:
+    # -- Timezone for the container.
+    timezone: Americas/New_York
+    # -- The FQDN for the service. Used for PAPERLESS_URL
+    fqdn: 'paperless.seibert.family'
+
+  persistentVolumeClaim:
+    # -- Create a new persistent volume claim object.
+    create: true
+    # -- Mount path of the persistent volume claim object.
+    mountPath: /usr/src/paperless
+    # -- Access mode of the persistent volume claim object.
+    accessMode: ReadWriteMany
+    # -- Volume mode of the persistent volume claim object.
+    volumeMode: Filesystem
+    # -- Storage request size for the persistent volume claim object.
+    size: 100Gi
+    # -- Storage class name for the persistent volume claim object.
+    storageClassName: 'synology-iscsi-storage'
+
+  consumption:
+    # -- Enable the volume mount of a [consumption directory](https://paperless-ngx.readthedocs.io/en/latest/configuration.html#paths-and-folders).
+    enabled: true
+    nfs:
+      # -- Enable NFS for the consumption directory
+      enabled: true
+      # -- The NFS server to use
+      server: "172.16.2.20"
+      # -- The path to the directory
+      path: "/volume2/paperless_consume"
+      # -- Mount the directory read-only. This must be false
+      readOnly: false
+
+  export:
+    # -- Enable the volume mount of an export directory for [backups](https://paperless-ngx.readthedocs.io/en/latest/administration.html#making-backups) using the [document exporter](https://paperless-ngx.readthedocs.io/en/latest/administration.html#utilities-exporter).
+    enabled: true
+    # -- Mount path of the export directory inside the container.
+    mountPath: /usr/src/paperless/export
+    # -- Host path of the export directory outside the container.
+    nfs:
+      # -- Enable NFS for the export directory
+      enabled: true
+      # -- The NFS server to use
+      server: "172.16.2.20"
+      # -- The path to the directory
+      path: "/volume2/paperless_export"
+      # -- Mount the directory read-only. This must be false
+      readOnly: false
+    cronJob:
+      # -- Create a `CronJob` object for [automated exports](https://paperless-ngx.readthedocs.io/en/latest/administration.html#making-backups).
+      enabled: false
+      # -- Schedule for automated exports.
+      schedule: '0 4 * * 1'
+      # -- Enable/disable the cron job schedule quickly.
+      suspend: false
+      # -- The number of successful finished jobs to retain.
+      successfulJobsHistoryLimit: 3
+      # -- The number of failed finished jobs to retain.
+      failedJobsHistoryLimit: 1
+      # -- Additional annotations for the cronjob object.
+      annotations: {}
+      # -- Additional labels for the cronjob object.
+      labels: {}
+
+  trash:
+    # -- Enable the volume mount of a [trash directory](https://paperless-ngx.readthedocs.io/en/latest/configuration.html#paths-and-folders).
+    enabled: false
+    # -- Mount path of the trash directory inside the container.
+    mountPath: /trash
+    # -- Host path of the trash directory outside the container.
+    hostPath: ''
+    nfs:
+      # -- Enable NFS for the trash directory
+      enabled: false
+      # -- The NFS server to use
+      server: ""
+      # -- The path to the directory
+      path: ""
+      # -- Mount the directory read-only. This must be false
