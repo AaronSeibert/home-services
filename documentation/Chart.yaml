@@ -15,3 +15,4 @@ dependencies:
 - name: paperless
   version: 0.1.37
   repository: https://helm.seibert.family/
+  alias: paperless

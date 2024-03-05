@@ -66,6 +66,8 @@ paperless:
         paths:
           - path: /
             pathType: Prefix
+    secret:
+      create: false
     persistentVolumeClaim:
       create: true
       size: 25Gi
