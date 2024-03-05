@@ -1,4 +1,6 @@
 paperless-ngx:
+  image:
+    tag: 2.6.1
   ingress:
     # -- Create an Ingress object for exposing this chart
     enabled: true
