@@ -12,7 +12,7 @@ version: 0.1.0
 appVersion: "2.6.1"
 
 dependencies:
-- name: paperless-stack
+- name: paperless
   version: 0.1.32
   repository: https://helm.seibert.family/
   alias: paperless
