@@ -47,10 +47,7 @@ paperless:
         enabled: true
         path: /volume2/paperless_export
         server: 172.16.2.20
-    image:
-      tag: 2.6.1
     ingress:
-    # -- Create an Ingress object for exposing this chart
       enabled: true
       annotations:
           cert-manager.io/cluster-issuer: letsencrypt-prod
@@ -62,8 +59,8 @@ paperless:
           gethomepage.dev/name: Paperless NGX
       tls:
         - hosts:
-          - paperless.seibert.family
-          secretName: paperless-webserver-cert
+            - paperless.seibert.family
+          secretName: documentation-webserver-secret-key
       hosts:
       - host: paperless.seibert.family
         paths:
