@@ -17,12 +17,12 @@ paperless:
     broker:
       redis:
         enabled: true
-        host: paperless-broker
+        host: documentation-broker
         port: 6379
     database:
       postgres:
         enabled: true
-        host: paperless-database
+        host: documentation-database
         name: paperless
         password: paperless
         port: 5432
