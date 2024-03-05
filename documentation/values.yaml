@@ -2,7 +2,6 @@ paperless-ngx:
   ingress:
     # -- Create an Ingress object for exposing this chart
     enabled: true
-    className: ""
     annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         kubernetes.io/ingress.class: traefik
@@ -25,6 +24,9 @@ paperless-ngx:
     timezone: Americas/New_York
     # -- The FQDN for the service. Used for PAPERLESS_URL
     fqdn: 'paperless.seibert.family'
+
+  service:
+    port: 8000
 
   persistentVolumeClaim:
     # -- Create a new persistent volume claim object.
