@@ -12,6 +12,7 @@ version: 0.1.0
 appVersion: "2.6.1"
 
 dependencies:
-- name: paperless-ngx
-  version: 0.1.27
+- name: paperless-stack
+  version: 0.1.32
   repository: https://helm.seibert.family/
+  alias: paperless
