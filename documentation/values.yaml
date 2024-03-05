@@ -60,15 +60,15 @@ paperless:
           gethomepage.dev/group: Documentation
           gethomepage.dev/icon: paperless-ngx.png
           gethomepage.dev/name: Paperless NGX
-      hosts:
-        - host: 'paperless.seibert.family'
-          paths:
-            - path: /
-              pathType: Prefix
       tls:
-        - secretName: documentation-webserver-secret-key
-          hosts:
-            - paperless.seibert.family
+        - hosts:
+          - paperless.seibert.family
+          secretName: paperless-webserver-cert
+      hosts:
+      - host: paperless.seibert.family
+        paths:
+          - path: /
+            pathType: Prefix
     persistentVolumeClaim:
       create: true
       size: 25Gi
