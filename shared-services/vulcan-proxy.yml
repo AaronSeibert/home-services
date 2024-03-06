@@ -17,6 +17,11 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     kubernetes.io/ingress.class: traefik
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/description: Vulcan NAS
+    gethomepage.dev/icon: synology.png
+    gethomepage.dev/group: Engineering
+    gethomepage.dev/name: Vulcan
   name: vulcan
   namespace: default
 spec:

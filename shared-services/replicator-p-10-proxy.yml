@@ -19,6 +19,11 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     kubernetes.io/ingress.class: traefik
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/description: Replicator P-10
+    gethomepage.dev/icon: printer.png
+    gethomepage.dev/group: Engineering
+    gethomepage.dev/name: 3D Printer 10
   name: replicator-p-10
   namespace: default
 spec:
