@@ -1,4 +1,6 @@
 paperless:
+  barcodes:
+    enabled: true
   broker:
     persistence:
       accessMode: ReadWriteMany
