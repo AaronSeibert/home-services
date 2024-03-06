@@ -13,6 +13,6 @@ appVersion: 2.6.1
 
 dependencies:
 - name: paperless
-  version: 0.1.39
+  version: 0.1.40
   repository: https://helm.seibert.family/
   alias: paperless
