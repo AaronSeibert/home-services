@@ -24,6 +24,7 @@ metadata:
     gethomepage.dev/icon: printer.png
     gethomepage.dev/group: Engineering
     gethomepage.dev/name: 3D Printer 10
+    gethomepage.dev/siteMonitor: https://replicator-p-10.engineering.seibert.family
   name: replicator-p-10
   namespace: default
 spec:
