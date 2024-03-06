@@ -1,6 +1,4 @@
 paperless:
-  barcodes:
-    enabled: true
   broker:
     persistence:
       accessMode: ReadWriteMany
@@ -16,6 +14,8 @@ paperless:
       enabled: true
       storageClass: synology-iscsi-storage
   global:
+    barcodes:
+      enabled: true
     broker:
       redis:
         enabled: true
