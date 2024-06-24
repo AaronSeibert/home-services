@@ -5,9 +5,7 @@ metadata:
   name: proxmox
   namespace: default
 spec:
-  ports:
-    - port: 8006
-      name: http
+  clusterIP: None
 ---
 kind: Endpoints
 apiVersion: v1
@@ -16,13 +14,7 @@ metadata:
 subsets:
   - addresses:
       - ip: 172.16.1.110
-    ports:
-      - port: 6008
-  - addresses:
       - ip: 172.16.1.111
-    ports:
-      - port: 6008
-  - addresses:
       - ip: 172.16.1.112
     ports:
       - port: 6008
