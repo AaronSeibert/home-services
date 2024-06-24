@@ -42,13 +42,15 @@ authentik:
         - authentik.seibert.family
 postgresql:
   persistence:
+    accessMode: ReadWriteMany
     enabled: true
     # -- db user
-    user: authentik
-    # -- db password
-    password: authentik
-    # -- db name
-    name: authentik
+  user: authentik
+  # -- db password
+  password: authentik
+  # -- db name
+  name: authentik
 redis:
   persistence:
+    accessMode: ReadWriteMany
     enabled: true
