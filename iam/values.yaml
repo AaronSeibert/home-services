@@ -1,0 +1,36 @@
+authentik:
+  global:
+    env:
+      - name: AUTHENTIK_SECRET_KEY
+        valueFrom:
+          secretKeyRef:
+            name: authentik-secrets
+            key: secret-key
+      - name: POSTGRES_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: authentik-secrets
+            key: pg-password
+  authentik:
+    error_reporting:
+      enabled: false
+  server:
+    ingress:
+      ingressClassName: traefik
+      enabled: true
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        kubernetes.io/ingress.class: traefik
+        gethomepage.dev/enabled: "true"
+        gethomepage.dev/description: SSO
+        gethomepage.dev/icon: si-authentik
+        gethomepage.dev/group: IAM
+        gethomepage.dev/name: Authentik
+      hosts:
+        - authentik.seibert.family
+  postgresql:
+    global:
+      storageClass: synology-iscsi-storage
+    enabled: true
+  redis:
+    enabled: true
