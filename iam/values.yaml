@@ -1,22 +1,23 @@
 authentik:
-  secret_key: "PleaseGenerateASecureKey"
-  error_reporting:
-    enabled: false
-server:
-  ingress:
-    ingressClassName: traefik
+  authentik:
+    secret_key: "PleaseGenerateASecureKey"
+    error_reporting:
+      enabled: false
+  server:
+    ingress:
+      ingressClassName: traefik
+      enabled: true
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        kubernetes.io/ingress.class: traefik
+        gethomepage.dev/enabled: "true"
+        gethomepage.dev/description: SSO
+        gethomepage.dev/icon: si-authentik-#8F0000
+        gethomepage.dev/group: IAM
+        gethomepage.dev/name: Authentik
+      hosts:
+        - authentik.seibert.family
+  postgresql:
     enabled: true
-    annotations:
-      cert-manager.io/cluster-issuer: letsencrypt-prod
-      kubernetes.io/ingress.class: traefik
-      gethomepage.dev/enabled: "true"
-      gethomepage.dev/description: SSO
-      gethomepage.dev/icon: si-authentik-#8F0000
-      gethomepage.dev/group: IAM
-      gethomepage.dev/name: Authentik
-    hosts:
-      - authentik.seibert.family
-postgresql:
-  enabled: true
-redis:
-  enabled: true
+  redis:
+    enabled: true
