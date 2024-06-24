@@ -40,16 +40,14 @@ authentik:
         gethomepage.dev/name: Authentik
       hosts:
         - authentik.seibert.family
-postgresql:
+postgres:
+  configMap:
+      postgresDb: authentik
+      postgresPassword: authentik
+      postgresUser: authentik
   persistence:
     accessMode: ReadWriteMany
     enabled: true
-    # -- db user
-  user: authentik
-  # -- db password
-  password: authentik
-  # -- db name
-  name: authentik
 redis:
   persistence:
     accessMode: ReadWriteMany
