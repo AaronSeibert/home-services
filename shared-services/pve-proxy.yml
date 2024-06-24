@@ -5,19 +5,34 @@ metadata:
   name: proxmox
   namespace: default
 spec:
-  clusterIP: None
+  ports:
+    - name: http
+      protocol: TCP
+      port: 443
+      targetPort: 8006
 ---
-kind: Endpoints
-apiVersion: v1
+apiVersion: discovery.k8s.io/v1
+kind: EndpointSlice
 metadata:
-  name: proxmox
-subsets:
+  name: proxmox-1 # by convention, use the name of the Service
+                     # as a prefix for the name of the EndpointSlice
+  labels:
+    # You should set the "kubernetes.io/service-name" label.
+    # Set its value to match the name of the Service
+    kubernetes.io/service-name: proxmox
+addressType: IPv4
+ports:
+  - name: http # should match with the name of the service port defined above
+    appProtocol: http
+    protocol: TCP
+    port: 8006
+endpoints:
   - addresses:
-      - ip: 172.16.1.110
-      - ip: 172.16.1.111
-      - ip: 172.16.1.112
-    ports:
-      - port: 6008
+      - "172.16.1.110"
+  - addresses:
+      - "172.16.1.111"
+  - addresses:
+      - "172.16.1.112"
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
