@@ -23,7 +23,7 @@ server:
       mountPath: /postgres-creds
       readOnly: true
     - name: authentik-secrets
-      mountPaht: /authentik-secrets
+      mountPath: /authentik-secrets
       readOnly: true
 worker:
   volumes:
@@ -38,7 +38,7 @@ worker:
       mountPath: /postgres-creds
       readOnly: true
     - name: authentik-secrets
-      mountPaht: /authentik-secrets
+      mountPath: /authentik-secrets
       readOnly: true
 postgresql:
   enabled: true
