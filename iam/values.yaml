@@ -1,6 +1,7 @@
 authentik:
   error_reporting:
     enabled: false
+  secret_key: "ChangeMeYouFool"
 server:
   ingress:
     ingressClassName: traefik
