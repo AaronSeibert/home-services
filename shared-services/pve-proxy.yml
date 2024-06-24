@@ -1,0 +1,53 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: proxmox
+  namespace: default
+spec:
+  ports:
+    - port: 8006
+      name: http
+---
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: proxmox
+subsets:
+  - addresses:
+      - ip: 172.16.1.110
+      - ip: 172.16.1.111
+      - ip: 172.16.1.112
+    ports:
+      - port: 6008
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/ingress.class: traefik
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/description: Proxmox Admin
+    gethomepage.dev/icon: proxmox.png
+    gethomepage.dev/group: Engineering
+    gethomepage.dev/name: Proxmox
+    gethomepage.dev/siteMonitor: https://proxmox.seibert.family
+  name: proxmox
+  namespace: default
+spec:
+  rules:
+    - host: proxmox.seibert.family
+      http:
+        paths:
+          - backend:
+              service:
+                name: proxmox
+                port:
+                  name: http
+            path: /
+            pathType: Prefix
+  tls:
+    - hosts:
+        - proxmiox.seibert.family
+      secretName: proxmox-cert
