@@ -15,3 +15,9 @@ dependencies:
 - name: authentik
   version: 2024.4.2
   repository: https://charts.goauthentik.io/
+- name: postgres
+  version: 0.1.21
+  repository: https://helm.seibert.family
+- name: redis
+  version: 0.1.10
+  repository: https://helm.seibert.family

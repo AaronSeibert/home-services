@@ -8,10 +8,21 @@ authentik:
             name: authentik-secrets
             key: secret-key
       - name: POSTGRES_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: authentik-secrets
-            key: pg-password
+        value: authentik
+      - name: POSTGRES_USER
+        value: authentik
+      - name: POSTGRES_DB
+        value: authentik
+    #   - name: POSTGRES_PASSWORD
+    #     valueFrom:
+    #       secretKeyRef:
+    #         name: authentik-secrets
+    #         key: pg-password
+    #   - name: POSTGRES_USER
+    #     valueFrom:
+    #       secretKeyRef:
+    #         name: authentik-secrets
+    #         key: pg-password
   authentik:
     error_reporting:
       enabled: false
@@ -29,9 +40,15 @@ authentik:
         gethomepage.dev/name: Authentik
       hosts:
         - authentik.seibert.family
-  postgresql:
-    global:
-      storageClass: synology-iscsi-storage
+postgresql:
+  persistence:
     enabled: true
-  redis:
+    # -- db user
+    user: authentik
+    # -- db password
+    password: authentik
+    # -- db name
+    name: authentik
+redis:
+  persistence:
     enabled: true
