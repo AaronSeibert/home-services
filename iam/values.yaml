@@ -28,6 +28,12 @@ authentik:
   authentik:
     error_reporting:
       enabled: false
+    postgres:
+      host: iam-postgres
+      user: authentik
+      pass: authentik
+    redis:
+      enabled: true
   server:
     ingress:
       ingressClassName: traefik
@@ -47,10 +53,6 @@ postgres:
       postgresDb: authentik
       postgresPassword: authentik
       postgresUser: authentik
-  persistence:
-    accessMode: ReadWriteMany
-    enabled: true
-redis:
   persistence:
     accessMode: ReadWriteMany
     enabled: true
