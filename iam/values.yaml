@@ -21,6 +21,8 @@ authentik:
         value: authentik
       - name: AUTHENTIK_POSTGRESQL__PASSWORD
         value: authentik
+      - name: AUTHENTIK_REDIS__HOST
+        value: iam-redis
     #   - name: POSTGRES_PASSWORD
     #     valueFrom:
     #       secretKeyRef:
@@ -34,8 +36,6 @@ authentik:
   authentik:
     error_reporting:
       enabled: false
-  redis:
-    enabled: true
   server:
     ingress:
       ingressClassName: traefik
@@ -55,6 +55,10 @@ postgres:
       postgresDb: authentik
       postgresPassword: authentik
       postgresUser: authentik
+  persistence:
+    accessMode: ReadWriteMany
+    enabled: true
+redis:
   persistence:
     accessMode: ReadWriteMany
     enabled: true
