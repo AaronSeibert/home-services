@@ -1,5 +1,6 @@
 authentik:
   global:
+    storageClass: synology-iscsi-storage
     env:
       - name: AUTHENTIK_SECRET_KEY
         valueFrom:
