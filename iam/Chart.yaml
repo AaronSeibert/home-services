@@ -17,7 +17,7 @@ dependencies:
   repository: https://charts.goauthentik.io/
 - name: postgres
   version: 0.1.21
-  repository: https://helm.seibert.family
+  repository: https://helm.seibert.family/
 - name: redis
   version: 0.1.10
-  repository: https://helm.seibert.family
+  repository: https://helm.seibert.family/

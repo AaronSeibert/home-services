@@ -13,6 +13,8 @@ authentik:
         value: authentik
       - name: POSTGRES_DB
         value: authentik
+      - name: POSTGRES_HOST
+        value: iam-postgres
     #   - name: POSTGRES_PASSWORD
     #     valueFrom:
     #       secretKeyRef:
