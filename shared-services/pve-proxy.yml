@@ -29,10 +29,13 @@ ports:
 endpoints:
   - addresses:
       - "172.16.1.110"
+    conditions: {}
   - addresses:
       - "172.16.1.111"
+    conditions: {}
   - addresses:
       - "172.16.1.112"
+    conditions: {}
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
