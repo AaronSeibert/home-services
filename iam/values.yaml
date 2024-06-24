@@ -3,6 +3,8 @@ authentik:
     secret_key: "PleaseGenerateASecureKey"
     error_reporting:
       enabled: false
+    postgresql:
+      password: "ThisIsNotASecurePassword"
   server:
     ingress:
       ingressClassName: traefik
@@ -19,5 +21,7 @@ authentik:
         - authentik.seibert.family
   postgresql:
     enabled: true
+    auth:
+      password: "ThisIsNotASecurePassword"
   redis:
     enabled: true
