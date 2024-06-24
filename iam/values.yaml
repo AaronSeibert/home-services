@@ -1,6 +1,5 @@
 authentik:
   global:
-    storageClass: synology-iscsi-storage
     env:
       - name: AUTHENTIK_SECRET_KEY
         valueFrom:
@@ -50,6 +49,10 @@ authentik:
         gethomepage.dev/name: Authentik
       hosts:
         - authentik.seibert.family
+      tls:
+        - hosts:
+            - authentik.seibert.family
+          secretName: authentik-cert
 postgres:
   configMap:
       postgresDb: authentik
