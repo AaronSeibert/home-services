@@ -42,14 +42,11 @@ authentik:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         kubernetes.io/ingress.class: traefik
-        {{- include "base.homepage" (list . "base.homepage") -}}
-        {{- define "base.homepage" -}}
         gethomepage.dev/enabled: "true"
         gethomepage.dev/description: SSO
         gethomepage.dev/icon: si-authentik
         gethomepage.dev/group: IAM
         gethomepage.dev/siteMonitor: "https://authentik.seibert.family"
-        {{- end -}}
       hosts:
         - authentik.seibert.family
       tls:
