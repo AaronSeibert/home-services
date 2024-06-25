@@ -21,3 +21,6 @@ dependencies:
 - name: redis
   version: 0.1.10
   repository: https://helm.seibert.family/
+- name: base
+  version: 0.1.9
+  repository: https://helm.seibert.family/
