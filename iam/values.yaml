@@ -46,6 +46,7 @@ authentik:
         gethomepage.dev/description: SSO
         gethomepage.dev/icon: si-authentik
         gethomepage.dev/group: IAM
+        githomepage.dev/name: Authentik
         gethomepage.dev/siteMonitor: "https://authentik.seibert.family"
       hosts:
         - authentik.seibert.family
